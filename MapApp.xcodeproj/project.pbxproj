@@ -12,6 +12,8 @@
 		436C7FDD26B0074400C4E2CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436C7FDC26B0074400C4E2CB /* Assets.xcassets */; };
 		436C7FE026B0074400C4E2CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436C7FDF26B0074400C4E2CB /* Preview Assets.xcassets */; };
 		436C7FEA26B0446C00C4E2CB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436C7FE826B0432300C4E2CB /* CoreLocation.framework */; };
+		436C7FED26B20B4200C4E2CB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C7FEC26B20B4200C4E2CB /* MapView.swift */; };
+		436C7FEF26B20C2800C4E2CB /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C7FEE26B20C2800C4E2CB /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		436C7FDF26B0074400C4E2CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		436C7FE126B0074400C4E2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		436C7FE826B0432300C4E2CB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		436C7FEC26B20B4200C4E2CB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		436C7FEE26B20C2800C4E2CB /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		436C7FD726B0074000C4E2CB /* MapApp */ = {
 			isa = PBXGroup;
 			children = (
+				436C7FEB26B20B1700C4E2CB /* MapView */,
 				436C7FD826B0074000C4E2CB /* MapAppApp.swift */,
 				436C7FDA26B0074000C4E2CB /* ContentView.swift */,
 				436C7FDC26B0074400C4E2CB /* Assets.xcassets */,
@@ -79,6 +84,15 @@
 				436C7FE826B0432300C4E2CB /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		436C7FEB26B20B1700C4E2CB /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				436C7FEC26B20B4200C4E2CB /* MapView.swift */,
+				436C7FEE26B20C2800C4E2CB /* MapViewModel.swift */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +165,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				436C7FDB26B0074000C4E2CB /* ContentView.swift in Sources */,
+				436C7FED26B20B4200C4E2CB /* MapView.swift in Sources */,
 				436C7FD926B0074000C4E2CB /* MapAppApp.swift in Sources */,
+				436C7FEF26B20C2800C4E2CB /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
