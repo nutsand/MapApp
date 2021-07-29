@@ -20,7 +20,6 @@ struct MapView: View {
                 Map(locationDelegate: locationDelegate, isCenterLocked: isCenterLocked)
                     .onAppear {
                         self.locationManager.delegate = locationDelegate
-                        self.locationDelegate.locationManagerDidChangeAuthorization(locationManager)
                     }
                     .gesture(
                         DragGesture()
@@ -92,13 +91,14 @@ class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var points: [CLLocationCoordinate2D] = []
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if manager.authorizationStatus == .authorizedWhenInUse {
+        if manager.authorizationStatus == .authorizedAlways {
             print("location is authorized")
+            manager.allowsBackgroundLocationUpdates = true
             manager.distanceFilter = 10
             manager.startUpdatingLocation()
         } else {
             print("location is not authorized")
-            manager.requestWhenInUseAuthorization()
+            manager.requestAlwaysAuthorization()
         }
     }
     
