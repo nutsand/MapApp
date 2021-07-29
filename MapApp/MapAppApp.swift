@@ -13,8 +13,7 @@ struct MapAppApp: App {
     var body: some Scene {
         WindowGroup {
             let locationManager = CLLocationManager()
-            ContentView(locationManager: locationManager,
-                        locationDelegate: LocationDelegate(manager: locationManager))
+            ContentView(locationManager: locationManager)
         }
     }
 }
