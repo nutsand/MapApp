@@ -10,17 +10,19 @@ import MapKit
 import CoreLocation
 
 struct ContentView: View {
-    var locationManager = CLLocationManager()
+    var locationManager: CLLocationManager
+    @StateObject var locationDelegate: LocationDelegate
+    
 
     var body: some View {
         VStack {
             MapView(locationManager: locationManager,
-                    locationDelegate: LocationDelegate())
+                    locationDelegate: locationDelegate)
             
             Button(action: {
-                print("save location tapped")
+                locationDelegate.tapTrackButton()
             }, label: {
-                Text("Save location")
+                Text("Track location")
             })
         }
     }
@@ -30,6 +32,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let manager = CLLocationManager()
+        ContentView(locationManager: manager,
+                    locationDelegate: LocationDelegate(manager: manager))
     }
 }

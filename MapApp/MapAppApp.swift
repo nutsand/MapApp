@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 @main
 struct MapAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let locationManager = CLLocationManager()
+            ContentView(locationManager: locationManager,
+                        locationDelegate: LocationDelegate(manager: locationManager))
         }
     }
 }

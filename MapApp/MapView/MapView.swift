@@ -11,25 +11,25 @@ import MapKit
 
 struct MapView: View {
     var locationManager: CLLocationManager
-    @StateObject var locationDelegate: LocationDelegate
-    @State var isCenterLocked = true
+    @ObservedObject var locationDelegate: LocationDelegate
     
     var body: some View {
         VStack {
             ZStack(alignment: .bottomTrailing) {
-                Map(locationDelegate: locationDelegate, isCenterLocked: isCenterLocked)
+                Map(locationDelegate: locationDelegate)
                     .onAppear {
                         self.locationManager.delegate = locationDelegate
+                        self.locationManager.requestAlwaysAuthorization()
                     }
                     .gesture(
                         DragGesture()
                             .onChanged { _ in
-                                self.isCenterLocked = false
+                                self.locationDelegate.isCenterLocked = false
                             }
                     )
                 
                 Button(action: {
-                    self.isCenterLocked = true
+                    self.locationDelegate.tapCenterButton()
                 }, label: {
                     Image(systemName: "location.circle")
                         .resizable()
@@ -46,7 +46,6 @@ struct Map: UIViewRepresentable {
     typealias UIViewType = MKMapView
     
     @ObservedObject var locationDelegate: LocationDelegate
-    var isCenterLocked: Bool
     var locationManager = CLLocationManager()
     
     func makeCoordinator() -> MapViewCoordinator {
@@ -56,10 +55,11 @@ struct Map: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         let map = MKMapView()
         map.delegate = context.coordinator
-        map.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: locationDelegate.latitude,
-                                                                        longitude: locationDelegate.longitude),
-                                         span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)),
-                      animated: false)
+        map.setRegion(MKCoordinateRegion(
+                        center:CLLocationCoordinate2D(latitude: locationDelegate.latitude ?? 0,
+                                                    longitude: locationDelegate.longitude ?? 0),
+                        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        ),animated: false)
         return map
     }
     
@@ -67,10 +67,15 @@ struct Map: UIViewRepresentable {
         uiView.removeOverlays(uiView.overlays)
         uiView.addOverlay(MKPolyline(coordinates: locationDelegate.points, count: locationDelegate.points.count))
         
-        if (isCenterLocked) {
-        let centar = CLLocationCoordinate2D(latitude: locationDelegate.latitude,
-                                            longitude: locationDelegate.longitude)
-        uiView.setCenter(centar, animated: true)
+        guard let latitude = locationDelegate.latitude,
+              let longitude = locationDelegate.longitude else {
+            return
+        }
+        
+        if (locationDelegate.isCenterLocked) {
+            let centar = CLLocationCoordinate2D(latitude: latitude,
+                                            longitude: longitude)
+            uiView.setCenter(centar, animated: true)
         }
     }
     
@@ -86,16 +91,23 @@ struct Map: UIViewRepresentable {
 }
 
 class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
-    var latitude: CLLocationDegrees = 0
-    var longitude: CLLocationDegrees = 0
     @Published var points: [CLLocationCoordinate2D] = []
+    var isCenterLocked = false
+    var isTracking = false
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
+    var locationManager: CLLocationManager
+    
+    init(manager: CLLocationManager) {
+        locationManager = manager
+        super.init()
+    }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         if manager.authorizationStatus == .authorizedAlways {
             print("location is authorized")
             manager.allowsBackgroundLocationUpdates = true
             manager.distanceFilter = 10
-            manager.startUpdatingLocation()
         } else {
             print("location is not authorized")
             manager.requestAlwaysAuthorization()
@@ -114,10 +126,30 @@ class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.longitude = longitude
         self.points += [CLLocationCoordinate2D(latitude: latitude, longitude: longitude)]
     }
+    
+    func tapTrackButton() {
+        if (self.isTracking) {
+            self.isTracking = false
+            self.points = []
+            self.latitude = nil
+            self.latitude = nil
+            self.locationManager.stopUpdatingLocation()
+        } else {
+            self.isTracking = true
+            self.isCenterLocked = true
+            self.locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func tapCenterButton() {
+        self.isCenterLocked.toggle()
+    }
 }
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(locationManager: CLLocationManager(), locationDelegate: LocationDelegate())
+        let manager = CLLocationManager()
+        MapView(locationManager: manager,
+                locationDelegate: LocationDelegate(manager: manager))
     }
 }
