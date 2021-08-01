@@ -10,10 +10,13 @@ import CoreLocation
 
 @main
 struct MapAppApp: App {
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             let locationManager = CLLocationManager()
             ContentView(locationManager: locationManager)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

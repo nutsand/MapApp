@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Point" representedClassName="Point" syncable="YES">
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="order" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="root" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Root" inverseName="points" inverseEntity="Root"/>
+    </entity>
+    <entity name="Root" representedClassName="Root" syncable="YES">
+        <attribute name="rootnm" optional="YES" attributeType="String"/>
+        <relationship name="points" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Point" inverseName="root" inverseEntity="Point"/>
+    </entity>
+    <elements>
+        <element name="Root" positionX="-63" positionY="-18" width="126.2151489257812" height="73"/>
+        <element name="Point" positionX="186.6015625" positionY="-19.9610595703125" width="128" height="103"/>
+    </elements>
+</model>
