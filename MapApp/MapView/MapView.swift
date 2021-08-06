@@ -61,26 +61,27 @@ struct Map: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         let map = MKMapView()
         map.delegate = context.coordinator
-        map.setRegion(MKCoordinateRegion(
-            center:CLLocationCoordinate2D(latitude: 0,longitude: 0),
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        ),animated: false)
+        map.showsUserLocation = true
+//        map.userTrackingMode = .follow
+//        map.setRegion(MKCoordinateRegion(
+//            center:map.userLocation.coordinate,
+//            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+//        ),animated: false)
         return map
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
+        // 経路線
         uiView.removeOverlays(uiView.overlays)
+        if (vm.isTracking) {
         uiView.addOverlay(MKPolyline(coordinates: vm.points, count: vm.points.count))
-        
-        guard let latitude = self.vm.points.last?.latitude,
-              let longitude = self.vm.points.last?.longitude else {
-            return
         }
         
+        // センタリング
         if (vm.isCenterLocked) {
-            let centar = CLLocationCoordinate2D(latitude: latitude,
-                                            longitude: longitude)
-            uiView.setCenter(centar, animated: true)
+            uiView.userTrackingMode = .follow
+        } else {
+            uiView.userTrackingMode = .none
         }
     }
     

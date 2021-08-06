@@ -11,10 +11,18 @@ import CoreLocation
 
 struct ContentView: View {
     var locationManager: CLLocationManager
-
+    @State var selection = 0
+    
     var body: some View {
-        MapView(locationManager: locationManager,
-                vm: MapViewModel(manager: locationManager))
+        TabView(selection: $selection) {
+            MapView(locationManager: locationManager,
+                    vm: MapViewModel(manager: locationManager))
+                .tabItem { Text("Map") }
+                .tag(1)
+            RootView(vm: RootViewModel(isPreview: false))
+                .tabItem { Text("Root") }
+                .tag(2)
+        }
     }
 }
 

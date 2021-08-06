@@ -14,8 +14,8 @@ class MapViewModel: ObservableObject {
     var locationManager: CLLocationManager
     var locationDelegate = LocationDelegate()
     
-    var isCenterLocked = false
-    var isTracking = false
+    @Published var isCenterLocked = false
+    @Published var isTracking = false
     
     init(manager: CLLocationManager) {
         manager.delegate = locationDelegate
@@ -47,7 +47,6 @@ class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
         if manager.authorizationStatus == .authorizedAlways {
             print("location is authorized")
             manager.allowsBackgroundLocationUpdates = true
-            manager.distanceFilter = 10
         } else {
             print("location is not authorized")
             manager.requestAlwaysAuthorization()

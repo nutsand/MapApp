@@ -16,7 +16,8 @@ extension Root {
         return NSFetchRequest<Root>(entityName: "Root")
     }
 
-    @NSManaged public var rootnm: String?
+    @NSManaged public var rootnm: String
+    @NSManaged public var date: Date
     @NSManaged public var points: NSSet?
 
 }

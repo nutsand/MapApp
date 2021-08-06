@@ -4,14 +4,15 @@
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="order" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="root" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Root" inverseName="points" inverseEntity="Root"/>
+        <relationship name="root" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Root" inverseName="points" inverseEntity="Root"/>
     </entity>
     <entity name="Root" representedClassName="Root" syncable="YES">
-        <attribute name="rootnm" optional="YES" attributeType="String"/>
-        <relationship name="points" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Point" inverseName="root" inverseEntity="Point"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="rootnm" attributeType="String"/>
+        <relationship name="points" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Point" inverseName="root" inverseEntity="Point"/>
     </entity>
     <elements>
-        <element name="Root" positionX="-63" positionY="-18" width="126.2151489257812" height="73"/>
-        <element name="Point" positionX="186.6015625" positionY="-19.9610595703125" width="128" height="103"/>
+        <element name="Point" positionX="186.6015625" positionY="-19.9610595703125" width="128" height="89"/>
+        <element name="Root" positionX="-63" positionY="-18" width="126.2151489257812" height="74"/>
     </elements>
 </model>

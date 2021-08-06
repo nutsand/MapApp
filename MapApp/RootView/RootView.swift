@@ -6,19 +6,56 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RootView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    @StateObject var vm: RootViewModel
     
     var body: some View {
-        List() {
-            
+        NavigationView {
+            List {
+                ForEach(vm.roots) { root in
+                    NavigationLink(destination: RootMapView()) {
+                        Text(root.rootnm)
+                    }
+                }
+            }
+            .navigationTitle("旅の記憶")
         }
+    }
+}
+
+struct RootMapView: View {
+    var body: some View {
+        Text("RootMap")
     }
 }
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        RootView(vm: RootViewModel(isPreview: true))
+    }
+}
+
+class RootViewModel: ObservableObject {
+    let cdmanager: CoreDataManager
+    @Published var roots: [Root] = []
+    
+    init(isPreview: Bool) {
+        if isPreview {
+            cdmanager = CoreDataManager.preview
+        } else {
+            cdmanager = CoreDataManager.shared
+        }
+        getRoot()
+    }
+    
+    func getRoot() {
+        let request = NSFetchRequest<Root>(entityName: "Root")
+        do {
+           roots = try cdmanager.context.fetch(request)
+        } catch let error {
+            print("fetch error...\(error.localizedDescription)")
+        }
     }
 }
