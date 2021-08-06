@@ -15,8 +15,10 @@ struct RootView: View {
         NavigationView {
             List {
                 ForEach(vm.roots) { root in
-                    NavigationLink(destination: RootMapView()) {
-                        Text(root.rootnm)
+                    NavigationLink(destination: RootMapView(root: root)) {
+                        VStack {
+                            Text(root.rootnm)
+                        }
                     }
                 }
             }
@@ -26,8 +28,10 @@ struct RootView: View {
 }
 
 struct RootMapView: View {
+    let root: Root
+
     var body: some View {
-        Text("RootMap")
+        Map(vm: MapModel(points: root.coordinates, isTracking: true))
     }
 }
 

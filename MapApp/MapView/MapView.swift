@@ -16,7 +16,7 @@ struct MapView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .bottomTrailing) {
-                Map(vm: vm, locationManager: locationManager)
+                Map(vm: vm)
                     .onAppear {
                         self.locationManager.requestAlwaysAuthorization()
                     }
@@ -51,8 +51,7 @@ struct MapView: View {
 struct Map: UIViewRepresentable {
     typealias UIViewType = MKMapView
     
-    @ObservedObject var vm: MapViewModel
-    var locationManager: CLLocationManager
+    @ObservedObject var vm: MapModel
     
     func makeCoordinator() -> MapViewCoordinator {
         return MapViewCoordinator()

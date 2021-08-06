@@ -9,17 +9,26 @@ import Foundation
 import CoreLocation
 import SwiftUI
 
-class MapViewModel: ObservableObject {
-    @Published var points: [CLLocationCoordinate2D] = []
-    var locationManager: CLLocationManager
-    var locationDelegate = LocationDelegate()
-    
+class MapModel: ObservableObject {
+    @Published var points: [CLLocationCoordinate2D]
     @Published var isCenterLocked = false
     @Published var isTracking = false
+    
+    init(points: [CLLocationCoordinate2D] = [], isTracking: Bool = false, isCenterLocked: Bool = false) {
+        self.points = points
+        self.isTracking = isTracking
+        self.isCenterLocked = isCenterLocked
+    }
+}
+
+class MapViewModel: MapModel {
+    var locationManager: CLLocationManager
+    var locationDelegate = LocationDelegate()
     
     init(manager: CLLocationManager) {
         manager.delegate = locationDelegate
         self.locationManager = manager
+        super.init()
         self.locationDelegate.vm = self
     }
     
@@ -41,7 +50,7 @@ class MapViewModel: ObservableObject {
 }
 
 class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
-    var vm: MapViewModel?
+    var vm: MapModel?
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         if manager.authorizationStatus == .authorizedAlways {

@@ -13,7 +13,7 @@
 		436C7FE026B0074400C4E2CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436C7FDF26B0074400C4E2CB /* Preview Assets.xcassets */; };
 		436C7FEA26B0446C00C4E2CB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436C7FE826B0432300C4E2CB /* CoreLocation.framework */; };
 		436C7FED26B20B4200C4E2CB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C7FEC26B20B4200C4E2CB /* MapView.swift */; };
-		436C7FEF26B20C2800C4E2CB /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C7FEE26B20C2800C4E2CB /* MapViewModel.swift */; };
+		436C7FEF26B20C2800C4E2CB /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C7FEE26B20C2800C4E2CB /* MapModel.swift */; };
 		436C801226B2FE8700C4E2CB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 436C801026B2FE8700C4E2CB /* Model.xcdatamodeld */; };
 		436C801726B4E67700C4E2CB /* Point+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C801326B4E67700C4E2CB /* Point+CoreDataClass.swift */; };
 		436C801826B4E67700C4E2CB /* Point+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C801426B4E67700C4E2CB /* Point+CoreDataProperties.swift */; };
@@ -32,7 +32,7 @@
 		436C7FE126B0074400C4E2CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		436C7FE826B0432300C4E2CB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		436C7FEC26B20B4200C4E2CB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		436C7FEE26B20C2800C4E2CB /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		436C7FEE26B20C2800C4E2CB /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		436C801126B2FE8700C4E2CB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		436C801326B4E67700C4E2CB /* Point+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Point+CoreDataClass.swift"; sourceTree = "<group>"; };
 		436C801426B4E67700C4E2CB /* Point+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Point+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				436C7FEC26B20B4200C4E2CB /* MapView.swift */,
-				436C7FEE26B20C2800C4E2CB /* MapViewModel.swift */,
+				436C7FEE26B20C2800C4E2CB /* MapModel.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -201,7 +201,7 @@
 				436C801A26B4E67700C4E2CB /* Root+CoreDataProperties.swift in Sources */,
 				436C7FD926B0074000C4E2CB /* MapAppApp.swift in Sources */,
 				436C801726B4E67700C4E2CB /* Point+CoreDataClass.swift in Sources */,
-				436C7FEF26B20C2800C4E2CB /* MapViewModel.swift in Sources */,
+				436C7FEF26B20C2800C4E2CB /* MapModel.swift in Sources */,
 				436C801C26B4EC0E00C4E2CB /* Persistence.swift in Sources */,
 				436C801F26B61F7000C4E2CB /* RootView.swift in Sources */,
 			);
