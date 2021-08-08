@@ -40,7 +40,11 @@ struct MapView: View {
             Button(action: {
                 self.vm.tapTrackButton()
             }, label: {
-                Text("Track location")
+                if (vm.isTracking) {
+                    Text("end tracking")
+                } else {
+                    Text("start tracking")
+                }
             })
             
         }

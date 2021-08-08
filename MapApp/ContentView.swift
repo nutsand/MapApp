@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selection) {
             MapView(locationManager: locationManager,
-                    vm: MapViewModel(manager: locationManager))
+                    vm: MapViewModel(manager: locationManager, isPreview: false))
                 .tabItem { Text("Map") }
                 .tag(1)
             RootView(vm: RootViewModel(isPreview: false))
@@ -25,8 +25,6 @@ struct ContentView: View {
         }
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

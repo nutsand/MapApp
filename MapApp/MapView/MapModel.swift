@@ -24,10 +24,16 @@ class MapModel: ObservableObject {
 class MapViewModel: MapModel {
     var locationManager: CLLocationManager
     var locationDelegate = LocationDelegate()
+    private var cdmanager: CoreDataManager
     
-    init(manager: CLLocationManager) {
+    init(manager: CLLocationManager, isPreview: Bool) {
         manager.delegate = locationDelegate
         self.locationManager = manager
+        if (isPreview) {
+            cdmanager = CoreDataManager.preview
+        } else {
+            cdmanager = CoreDataManager.shared
+        }
         super.init()
         self.locationDelegate.vm = self
     }
@@ -41,6 +47,7 @@ class MapViewModel: MapModel {
             self.isTracking = true
             self.isCenterLocked = true
             self.locationManager.startUpdatingLocation()
+            self.cdmanager.save()
         }
     }
     
