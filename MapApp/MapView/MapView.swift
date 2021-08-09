@@ -14,39 +14,44 @@ struct MapView: View {
     @ObservedObject var vm: MapViewModel
     
     var body: some View {
-        VStack {
-            ZStack(alignment: .bottomTrailing) {
-                Map(vm: vm)
-                    .onAppear {
-                        self.locationManager.requestAlwaysAuthorization()
-                    }
-                    .gesture(
-                        DragGesture()
-                            .onChanged { _ in
-                                self.vm.isCenterLocked = false
-                            }
-                    )
+        ZStack {
+            VStack {
+                ZStack(alignment: .bottomTrailing) {
+                    Map(vm: vm)
+                        .onAppear {
+                            self.locationManager.requestAlwaysAuthorization()
+                        }
+                        .gesture(
+                            DragGesture()
+                                .onChanged { _ in
+                                    self.vm.isCenterLocked = false
+                                }
+                        )
+                    
+                    Button(action: {
+                        self.vm.tapCenterButton()
+                    }, label: {
+                        Image(systemName: "location.circle")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .padding()
+                    })
+                }
                 
                 Button(action: {
-                    self.vm.tapCenterButton()
+                    self.vm.tapTrackButton()
                 }, label: {
-                    Image(systemName: "location.circle")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .padding()
+                    if (vm.isTracking) {
+                        Text("end tracking")
+                    } else {
+                        Text("start tracking")
+                    }
                 })
+                
             }
-            
-            Button(action: {
-                self.vm.tapTrackButton()
-            }, label: {
-                if (vm.isTracking) {
-                    Text("end tracking")
-                } else {
-                    Text("start tracking")
-                }
-            })
-            
+            if (vm.isRootNameEdit) {
+                RootNameEditView(vm: vm)
+            }
         }
     }
 }
@@ -77,7 +82,7 @@ struct Map: UIViewRepresentable {
         // 経路線
         uiView.removeOverlays(uiView.overlays)
         if (vm.isTracking) {
-        uiView.addOverlay(MKPolyline(coordinates: vm.points, count: vm.points.count))
+        uiView.addOverlay(MKPolyline(coordinates: vm.coordinates, count: vm.coordinates.count))
         }
         
         // センタリング
@@ -96,5 +101,12 @@ struct Map: UIViewRepresentable {
 
             return myPolyLineRendere
         }
+    }
+}
+
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        let locationManager = CLLocationManager()
+        MapView(locationManager: locationManager, vm: MapViewModel(manager: locationManager, isPreview: true))
     }
 }

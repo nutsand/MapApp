@@ -18,10 +18,10 @@ class RootViewModel: ObservableObject {
         } else {
             cdmanager = CoreDataManager.shared
         }
-        getRoot()
     }
     
     func getRoot() {
+        print("fetch Roots")
         let request = NSFetchRequest<Root>(entityName: "Root")
         do {
            roots = try cdmanager.context.fetch(request)

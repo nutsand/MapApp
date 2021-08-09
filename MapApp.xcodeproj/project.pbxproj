@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		433F48E626BD4FE5000B5DA8 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433F48E526BD4FE5000B5DA8 /* RootViewModel.swift */; };
+		433F48E826C10F36000B5DA8 /* RootNameEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433F48E726C10F36000B5DA8 /* RootNameEditView.swift */; };
 		436C7FD926B0074000C4E2CB /* MapAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C7FD826B0074000C4E2CB /* MapAppApp.swift */; };
 		436C7FDB26B0074000C4E2CB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C7FDA26B0074000C4E2CB /* ContentView.swift */; };
 		436C7FDD26B0074400C4E2CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436C7FDC26B0074400C4E2CB /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		433F48E526BD4FE5000B5DA8 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		433F48E726C10F36000B5DA8 /* RootNameEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNameEditView.swift; sourceTree = "<group>"; };
 		436C7FD526B0074000C4E2CB /* MapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		436C7FD826B0074000C4E2CB /* MapAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppApp.swift; sourceTree = "<group>"; };
 		436C7FDA26B0074000C4E2CB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				436C7FEC26B20B4200C4E2CB /* MapView.swift */,
 				436C7FEE26B20C2800C4E2CB /* MapModel.swift */,
+				433F48E726C10F36000B5DA8 /* RootNameEditView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				436C7FEF26B20C2800C4E2CB /* MapModel.swift in Sources */,
 				436C801C26B4EC0E00C4E2CB /* Persistence.swift in Sources */,
 				433F48E626BD4FE5000B5DA8 /* RootViewModel.swift in Sources */,
+				433F48E826C10F36000B5DA8 /* RootNameEditView.swift in Sources */,
 				436C801F26B61F7000C4E2CB /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

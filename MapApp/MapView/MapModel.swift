@@ -10,20 +10,22 @@ import CoreLocation
 import SwiftUI
 
 class MapModel: ObservableObject {
-    @Published var points: [CLLocationCoordinate2D]
+    @Published var coordinates: [CLLocationCoordinate2D]
     @Published var isCenterLocked = false
     @Published var isTracking = false
     
     init(points: [CLLocationCoordinate2D] = [], isTracking: Bool = false, isCenterLocked: Bool = false) {
-        self.points = points
+        self.coordinates = points
         self.isTracking = isTracking
         self.isCenterLocked = isCenterLocked
     }
 }
 
 class MapViewModel: MapModel {
-    var locationManager: CLLocationManager
-    var locationDelegate = LocationDelegate()
+    @Published var isRootNameEdit = false
+    @Published var rootName = ""
+    private var locationManager: CLLocationManager
+    private var locationDelegate = LocationDelegate()
     private var cdmanager: CoreDataManager
     
     init(manager: CLLocationManager, isPreview: Bool) {
@@ -40,19 +42,45 @@ class MapViewModel: MapModel {
     
     func tapTrackButton() {
         if (self.isTracking) {
+            // トラッキング終了時
             self.isTracking = false
-            self.points = []
             self.locationManager.stopUpdatingLocation()
+            self.isRootNameEdit = true
         } else {
+            // トラッキング開始時
             self.isTracking = true
             self.isCenterLocked = true
             self.locationManager.startUpdatingLocation()
-            self.cdmanager.save()
         }
     }
     
     func tapCenterButton() {
         self.isCenterLocked.toggle()
+    }
+    
+    func tapRootNameOK() {
+        saveRootData()
+        self.coordinates = []
+        self.isRootNameEdit = false
+    }
+    
+    private func saveRootData() {
+        var newPoints: NSSet = []
+        for i in 0 ..< coordinates.count {
+            let point = Point(context: cdmanager.context)
+            point.latitude = coordinates[i].latitude
+            point.longitude = coordinates[i].longitude
+            point.order = Int64(i)
+            newPoints = newPoints.adding(point) as NSSet
+        }
+        print("newPoints:\(newPoints)")
+        
+        let newRoot = Root(context: cdmanager.context)
+        newRoot.rootnm = self.rootName
+        newRoot.date = Date()
+        newRoot.addToPoints(newPoints)
+        
+        cdmanager.save()
     }
 }
 
@@ -77,6 +105,6 @@ class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
 
         print("latitude: \(latitude)\nlongitude: \(longitude)")
-        self.vm!.points += [CLLocationCoordinate2D(latitude: latitude, longitude: longitude)]
+        self.vm!.coordinates += [CLLocationCoordinate2D(latitude: latitude, longitude: longitude)]
     }
 }

@@ -24,6 +24,9 @@ struct RootView: View {
             }
             .navigationTitle("旅の記憶")
         }
+        .onAppear(perform: {
+            vm.getRoot()
+        })
     }
 }
 
