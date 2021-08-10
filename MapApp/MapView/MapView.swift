@@ -72,6 +72,11 @@ struct Map: UIViewRepresentable {
         let map = MKMapView()
         map.delegate = context.coordinator
         map.showsUserLocation = true
+        if (!vm.coordinates.isEmpty) {
+            map.setVisibleMapRect(self.vm.root.boundingMapRect,
+                                  edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
+                                  animated: true)
+        }
 //        map.userTrackingMode = .follow
 //        map.setRegion(MKCoordinateRegion(
 //            center:map.userLocation.coordinate,
@@ -84,7 +89,7 @@ struct Map: UIViewRepresentable {
         // 経路線
         uiView.removeOverlays(uiView.overlays)
         if (vm.isTracking) {
-        uiView.addOverlay(MKPolyline(coordinates: vm.coordinates, count: vm.coordinates.count))
+            uiView.addOverlay(self.vm.root)
         }
         
         // センタリング

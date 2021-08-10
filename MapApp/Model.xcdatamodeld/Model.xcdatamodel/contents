@@ -13,6 +13,6 @@
     </entity>
     <elements>
         <element name="Point" positionX="186.6015625" positionY="-19.9610595703125" width="128" height="89"/>
-        <element name="Root" positionX="-63" positionY="-18" width="126.2151489257812" height="74"/>
+        <element name="Root" positionX="-63" positionY="-18" width="126.2151489257812" height="14"/>
     </elements>
 </model>

@@ -8,11 +8,15 @@
 import Foundation
 import CoreLocation
 import SwiftUI
+import MapKit
 
 class MapModel: ObservableObject {
     @Published var coordinates: [CLLocationCoordinate2D]
     @Published var isCenterLocked = false
     @Published var isTracking = false
+    var root: MKPolyline {
+        MKPolyline(coordinates: coordinates, count: coordinates.count)
+    }
     
     init(points: [CLLocationCoordinate2D] = [], isTracking: Bool = false, isCenterLocked: Bool = false) {
         self.coordinates = points
@@ -73,7 +77,6 @@ class MapViewModel: MapModel {
             point.order = Int64(i)
             newPoints = newPoints.adding(point) as NSSet
         }
-        print("newPoints:\(newPoints)")
         
         let newRoot = Root(context: cdmanager.context)
         newRoot.rootnm = self.rootName
