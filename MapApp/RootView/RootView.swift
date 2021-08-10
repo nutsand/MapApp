@@ -22,7 +22,7 @@ struct RootView: View {
                     }
                 }
             }
-            .navigationTitle("旅の記憶")
+            .navigationTitle("経路一覧")
         }
         .onAppear(perform: {
             vm.getRoot()

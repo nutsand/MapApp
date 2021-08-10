@@ -39,7 +39,9 @@ struct MapView: View {
                 }
                 
                 Button(action: {
-                    self.vm.tapTrackButton()
+                    withAnimation {
+                        self.vm.tapTrackButton()
+                    }
                 }, label: {
                     if (vm.isTracking) {
                         Text("end tracking")

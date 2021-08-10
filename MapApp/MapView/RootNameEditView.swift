@@ -14,7 +14,7 @@ struct RootNameEditView: View {
     var body: some View {
         ZStack {
             Color.gray
-                .opacity(0.9)
+                .opacity(0.5)
             VStack {
                 Text("ルート名を入力")
                     .font(.title2)
