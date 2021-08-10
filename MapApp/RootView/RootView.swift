@@ -14,13 +14,15 @@ struct RootView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(vm.roots) { root in
+                ForEach(self.vm.roots) { root in
                     NavigationLink(destination: RootMapView(root: root)) {
                         VStack {
                             Text(root.rootnm)
                         }
                     }
-                }
+                }.onDelete(perform: { indexSet in
+                    self.vm.deleteRoot(offsets: indexSet)
+                })
             }
             .navigationTitle("経路一覧")
         }

@@ -21,12 +21,19 @@ class RootViewModel: ObservableObject {
     }
     
     func getRoot() {
-        print("fetch Roots")
+        print("fetch Roots...")
         let request = NSFetchRequest<Root>(entityName: "Root")
         do {
            roots = try cdmanager.context.fetch(request)
         } catch let error {
             print("fetch error...\(error.localizedDescription)")
         }
+    }
+    
+    func deleteRoot(offsets: IndexSet) {
+        for i in offsets {
+            cdmanager.delete(deleteObj: roots[i])
+        }
+        self.getRoot()
     }
 }
