@@ -27,6 +27,7 @@ struct MapView: View {
                                     self.vm.isCenterLocked = false
                                 }
                         )
+                        .ignoresSafeArea()
                     
                     Button(action: {
                         self.vm.tapCenterButton()
