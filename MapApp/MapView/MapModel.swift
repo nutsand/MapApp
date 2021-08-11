@@ -91,12 +91,13 @@ class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
     var vm: MapModel?
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if manager.authorizationStatus == .authorizedAlways {
+        print("locationManagerDidChangeAuthorization...")
+        if manager.authorizationStatus == .authorizedWhenInUse {
             print("location is authorized")
             manager.allowsBackgroundLocationUpdates = true
         } else {
             print("location is not authorized")
-            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
         }
     }
     

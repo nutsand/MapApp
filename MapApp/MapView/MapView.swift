@@ -19,7 +19,7 @@ struct MapView: View {
                 ZStack(alignment: .bottomTrailing) {
                     Map(vm: vm, isShowUserLocation: true)
                         .onAppear {
-                            self.locationManager.requestAlwaysAuthorization()
+                            self.locationManager.requestWhenInUseAuthorization()
                         }
                         .gesture(
                             DragGesture()
