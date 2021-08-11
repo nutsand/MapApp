@@ -16,9 +16,9 @@ struct RootNameEditView: View {
             Color.gray
                 .opacity(0.5)
             VStack {
-                Text("ルート名を入力")
+                Text("経路名を入力")
                     .font(.title2)
-                TextField("ルート名", text: $vm.rootName)
+                TextField("経路名", text: $vm.rootName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 Divider()

@@ -23,6 +23,7 @@ class RootViewModel: ObservableObject {
     func getRoot() {
         print("fetch Roots...")
         let request = NSFetchRequest<Root>(entityName: "Root")
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         do {
            roots = try cdmanager.context.fetch(request)
         } catch let error {

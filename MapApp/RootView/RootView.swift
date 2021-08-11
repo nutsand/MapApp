@@ -10,14 +10,22 @@ import CoreData
 
 struct RootView: View {
     @StateObject var vm: RootViewModel
+    let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(self.vm.roots) { root in
                     NavigationLink(destination: RootMapView(root: root)) {
-                        VStack {
+                        HStack {
                             Text(root.rootnm)
+                            Spacer()
+                            Text(formatter.string(from: root.date))
+                                .foregroundColor(.gray)
                         }
                     }
                 }.onDelete(perform: { indexSet in

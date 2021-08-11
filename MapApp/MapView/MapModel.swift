@@ -65,6 +65,7 @@ class MapViewModel: MapModel {
     func tapRootNameOK() {
         saveRootData()
         self.coordinates = []
+        self.rootName = ""
         self.isRootNameEdit = false
     }
     
