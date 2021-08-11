@@ -2,7 +2,7 @@
 //  Point+CoreDataProperties.swift
 //  MapApp
 //
-//  Created by 内藤光博 on 2021/07/31.
+//  Created by 内藤光博 on 2021/08/11.
 //
 //
 
@@ -16,9 +16,9 @@ extension Point {
         return NSFetchRequest<Point>(entityName: "Point")
     }
 
-    @NSManaged public var order: Int64
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
+    @NSManaged public var order: Int64
     @NSManaged public var root: Root?
 
 }

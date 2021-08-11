@@ -69,19 +69,19 @@ class MapViewModel: MapModel {
     }
     
     private func saveRootData() {
-        var newPoints: NSSet = []
+        var newPoints: [Point] = []
         for i in 0 ..< coordinates.count {
             let point = Point(context: cdmanager.context)
             point.latitude = coordinates[i].latitude
             point.longitude = coordinates[i].longitude
             point.order = Int64(i)
-            newPoints = newPoints.adding(point) as NSSet
+            newPoints.append(point)
         }
         
         let newRoot = Root(context: cdmanager.context)
         newRoot.rootnm = self.rootName
         newRoot.date = Date()
-        newRoot.addToPoints(newPoints)
+        newRoot.addToPoints(NSOrderedSet(array: newPoints))
         
         cdmanager.save()
     }

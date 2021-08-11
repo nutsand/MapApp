@@ -9,10 +9,10 @@
     <entity name="Root" representedClassName="Root" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="rootnm" attributeType="String"/>
-        <relationship name="points" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Point" inverseName="root" inverseEntity="Point"/>
+        <relationship name="points" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Point" inverseName="root" inverseEntity="Point"/>
     </entity>
     <elements>
         <element name="Point" positionX="186.6015625" positionY="-19.9610595703125" width="128" height="89"/>
-        <element name="Root" positionX="-63" positionY="-18" width="126.2151489257812" height="14"/>
+        <element name="Root" positionX="-63" positionY="-18" width="126.2151489257812" height="74"/>
     </elements>
 </model>

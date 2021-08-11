@@ -2,7 +2,7 @@
 //  Root+CoreDataProperties.swift
 //  MapApp
 //
-//  Created by 内藤光博 on 2021/07/31.
+//  Created by 内藤光博 on 2021/08/11.
 //
 //
 
@@ -16,14 +16,32 @@ extension Root {
         return NSFetchRequest<Root>(entityName: "Root")
     }
 
-    @NSManaged public var rootnm: String
     @NSManaged public var date: Date
-    @NSManaged public var points: NSSet?
+    @NSManaged public var rootnm: String
+    @NSManaged public var points: NSOrderedSet?
 
 }
 
 // MARK: Generated accessors for points
 extension Root {
+
+    @objc(insertObject:inPointsAtIndex:)
+    @NSManaged public func insertIntoPoints(_ value: Point, at idx: Int)
+
+    @objc(removeObjectFromPointsAtIndex:)
+    @NSManaged public func removeFromPoints(at idx: Int)
+
+    @objc(insertPoints:atIndexes:)
+    @NSManaged public func insertIntoPoints(_ values: [Point], at indexes: NSIndexSet)
+
+    @objc(removePointsAtIndexes:)
+    @NSManaged public func removeFromPoints(at indexes: NSIndexSet)
+
+    @objc(replaceObjectInPointsAtIndex:withObject:)
+    @NSManaged public func replacePoints(at idx: Int, with value: Point)
+
+    @objc(replacePointsAtIndexes:withPoints:)
+    @NSManaged public func replacePoints(at indexes: NSIndexSet, with values: [Point])
 
     @objc(addPointsObject:)
     @NSManaged public func addToPoints(_ value: Point)
@@ -32,10 +50,10 @@ extension Root {
     @NSManaged public func removeFromPoints(_ value: Point)
 
     @objc(addPoints:)
-    @NSManaged public func addToPoints(_ values: NSSet)
+    @NSManaged public func addToPoints(_ values: NSOrderedSet)
 
     @objc(removePoints:)
-    @NSManaged public func removeFromPoints(_ values: NSSet)
+    @NSManaged public func removeFromPoints(_ values: NSOrderedSet)
 
 }
 
