@@ -13,14 +13,14 @@ import MapKit
 class MapModel: ObservableObject {
     @Published var coordinates: [CLLocationCoordinate2D]
     @Published var isCenterLocked = false
-    @Published var isTracking = false
+    @Published var isShowRoot = false
     var root: MKPolyline {
         MKPolyline(coordinates: coordinates, count: coordinates.count)
     }
     
     init(points: [CLLocationCoordinate2D] = [], isTracking: Bool = false, isCenterLocked: Bool = false) {
         self.coordinates = points
-        self.isTracking = isTracking
+        self.isShowRoot = isTracking
         self.isCenterLocked = isCenterLocked
     }
 }
@@ -45,14 +45,14 @@ class MapViewModel: MapModel {
     }
     
     func tapTrackButton() {
-        if (self.isTracking) {
+        if (self.isShowRoot) {
             // トラッキング終了時
-            self.isTracking = false
+            self.isShowRoot = false
             self.locationManager.stopUpdatingLocation()
             self.isRootNameEdit = true
         } else {
             // トラッキング開始時
-            self.isTracking = true
+            self.isShowRoot = true
             self.isCenterLocked = true
             self.locationManager.startUpdatingLocation()
         }

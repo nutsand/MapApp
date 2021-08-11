@@ -36,7 +36,7 @@ struct RootMapView: View {
     let root: Root
 
     var body: some View {
-        Map(vm: MapModel(points: root.coordinates, isTracking: true))
+        Map(vm: MapModel(points: root.coordinates, isTracking: true), isShowUserLocation: false)
             .navigationTitle(root.rootnm)
     }
 

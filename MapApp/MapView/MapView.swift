@@ -17,7 +17,7 @@ struct MapView: View {
         ZStack(alignment: .center) {
             ZStack(alignment: .bottom) {
                 ZStack(alignment: .bottomTrailing) {
-                    Map(vm: vm)
+                    Map(vm: vm, isShowUserLocation: true)
                         .onAppear {
                             self.locationManager.requestAlwaysAuthorization()
                         }
@@ -51,7 +51,7 @@ struct MapView: View {
                         self.vm.tapTrackButton()
                     }
                 }, label: {
-                    if (vm.isTracking) {
+                    if (vm.isShowRoot) {
                         Text("トラッキング終了")
                     } else {
                         Text("トラッキング開始")
@@ -77,6 +77,7 @@ struct Map: UIViewRepresentable {
     typealias UIViewType = MKMapView
     
     @ObservedObject var vm: MapModel
+    var isShowUserLocation: Bool
     
     func makeCoordinator() -> MapViewCoordinator {
         return MapViewCoordinator()
@@ -85,7 +86,7 @@ struct Map: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         let map = MKMapView()
         map.delegate = context.coordinator
-        map.showsUserLocation = true
+        map.showsUserLocation = isShowUserLocation
         if (!vm.coordinates.isEmpty) {
             map.setVisibleMapRect(self.vm.root.boundingMapRect,
                                   edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100),
@@ -97,7 +98,7 @@ struct Map: UIViewRepresentable {
     func updateUIView(_ uiView: MKMapView, context: Context) {
         // 経路線
         uiView.removeOverlays(uiView.overlays)
-        if (vm.isTracking) {
+        if (vm.isShowRoot) {
             uiView.addOverlay(self.vm.root)
         }
         
