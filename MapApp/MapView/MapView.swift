@@ -14,8 +14,8 @@ struct MapView: View {
     @ObservedObject var vm: MapViewModel
     
     var body: some View {
-        ZStack {
-            VStack {
+        ZStack(alignment: .center) {
+            ZStack(alignment: .bottom) {
                 ZStack(alignment: .bottomTrailing) {
                     Map(vm: vm)
                         .onAppear {
@@ -31,10 +31,18 @@ struct MapView: View {
                     Button(action: {
                         self.vm.tapCenterButton()
                     }, label: {
-                        Image(systemName: "location.circle")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .padding()
+                        if (vm.isCenterLocked) {
+                            Image(systemName: "location.slash.fill")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .frame(width: 50, height: 50)
+                                .padding()
+                        } else {
+                            Image(systemName: "location.circle")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .padding()
+                        }
                     })
                 }
                 
@@ -44,13 +52,19 @@ struct MapView: View {
                     }
                 }, label: {
                     if (vm.isTracking) {
-                        Text("end tracking")
+                        Text("トラッキング終了")
                     } else {
-                        Text("start tracking")
+                        Text("トラッキング開始")
                     }
                 })
+                    .foregroundColor(.blue)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(100)
+                    .padding(.bottom)
                 
             }
+            
             if (vm.isRootNameEdit) {
                 RootNameEditView(vm: vm)
             }
@@ -74,14 +88,9 @@ struct Map: UIViewRepresentable {
         map.showsUserLocation = true
         if (!vm.coordinates.isEmpty) {
             map.setVisibleMapRect(self.vm.root.boundingMapRect,
-                                  edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
+                                  edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100),
                                   animated: true)
         }
-//        map.userTrackingMode = .follow
-//        map.setRegion(MKCoordinateRegion(
-//            center:map.userLocation.coordinate,
-//            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-//        ),animated: false)
         return map
     }
     

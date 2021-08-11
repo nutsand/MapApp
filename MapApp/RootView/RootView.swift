@@ -37,7 +37,9 @@ struct RootMapView: View {
 
     var body: some View {
         Map(vm: MapModel(points: root.coordinates, isTracking: true))
+            .navigationTitle(root.rootnm)
     }
+
 }
 
 struct RootView_Previews: PreviewProvider {
