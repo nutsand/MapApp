@@ -89,7 +89,7 @@ class MapViewModel: MapModel {
 }
 
 class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
-    var vm: MapModel?
+    weak var vm: MapModel?
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print("locationManagerDidChangeAuthorization...")
