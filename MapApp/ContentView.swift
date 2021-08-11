@@ -17,15 +17,17 @@ struct ContentView: View {
         TabView(selection: $selection) {
             MapView(locationManager: locationManager,
                     vm: MapViewModel(manager: locationManager, isPreview: false))
-                .tabItem { VStack {
-                    Image(systemName: "map")
-                    Text("Map")
+                .tabItem {
+                    VStack {
+                        Image(systemName: "map")
+                        Text("現在地")
                 } }
                 .tag(1)
             RootView(vm: RootViewModel(isPreview: false))
-                .tabItem { VStack {
-                    Image(systemName: "list.bullet")
-                    Text("Root")
+                .tabItem {
+                    VStack {
+                        Image(systemName: "list.bullet")
+                        Text("保存経路")
                 } }
                 .tag(2)
         }
