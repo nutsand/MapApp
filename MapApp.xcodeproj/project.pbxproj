@@ -21,8 +21,8 @@
 		436C801826B4E67700C4E2CB /* Point+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C801426B4E67700C4E2CB /* Point+CoreDataProperties.swift */; };
 		436C801926B4E67700C4E2CB /* Root+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C801526B4E67700C4E2CB /* Root+CoreDataClass.swift */; };
 		436C801A26B4E67700C4E2CB /* Root+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C801626B4E67700C4E2CB /* Root+CoreDataProperties.swift */; };
-		436C801C26B4EC0E00C4E2CB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C801B26B4EC0E00C4E2CB /* Persistence.swift */; };
 		436C801F26B61F7000C4E2CB /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436C801E26B61F7000C4E2CB /* RootView.swift */; };
+		43CF135526C3EFDD009C233D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF135426C3EFDD009C233D /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 		436C801426B4E67700C4E2CB /* Point+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Point+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		436C801526B4E67700C4E2CB /* Root+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Root+CoreDataClass.swift"; sourceTree = "<group>"; };
 		436C801626B4E67700C4E2CB /* Root+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Root+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		436C801B26B4EC0E00C4E2CB /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistence.swift; path = ../../CoreDataTest/CoreDataTest/Persistence.swift; sourceTree = "<group>"; };
 		436C801E26B61F7000C4E2CB /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		43CF135426C3EFDD009C233D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 				436C7FE126B0074400C4E2CB /* Info.plist */,
 				436C7FDE26B0074400C4E2CB /* Preview Content */,
 				436C801026B2FE8700C4E2CB /* Model.xcdatamodeld */,
-				436C801B26B4EC0E00C4E2CB /* Persistence.swift */,
+				43CF135426C3EFDD009C233D /* CoreDataManager.swift */,
 			);
 			path = MapApp;
 			sourceTree = "<group>";
@@ -202,13 +202,13 @@
 				436C7FDB26B0074000C4E2CB /* ContentView.swift in Sources */,
 				436C801826B4E67700C4E2CB /* Point+CoreDataProperties.swift in Sources */,
 				436C7FED26B20B4200C4E2CB /* MapView.swift in Sources */,
+				43CF135526C3EFDD009C233D /* CoreDataManager.swift in Sources */,
 				436C801926B4E67700C4E2CB /* Root+CoreDataClass.swift in Sources */,
 				436C801226B2FE8700C4E2CB /* Model.xcdatamodeld in Sources */,
 				436C801A26B4E67700C4E2CB /* Root+CoreDataProperties.swift in Sources */,
 				436C7FD926B0074000C4E2CB /* MapAppApp.swift in Sources */,
 				436C801726B4E67700C4E2CB /* Point+CoreDataClass.swift in Sources */,
 				436C7FEF26B20C2800C4E2CB /* MapModel.swift in Sources */,
-				436C801C26B4EC0E00C4E2CB /* Persistence.swift in Sources */,
 				433F48E626BD4FE5000B5DA8 /* RootViewModel.swift in Sources */,
 				433F48E826C10F36000B5DA8 /* RootNameEditView.swift in Sources */,
 				436C801F26B61F7000C4E2CB /* RootView.swift in Sources */,

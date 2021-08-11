@@ -14,9 +14,305 @@
             filePath = "../CoreDataTest/CoreDataTest/Persistence.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "delete(deleteObj:)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "save()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8016E40-1354-4410-BC03-21292EC317FB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapApp/RootView/RootViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "getRoot()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapApp/RootView/RootViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "RootViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED - 7aadf7c0684a3528"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of MapApp.RootViewModel.roots : Swift.Array&lt;MapApp.Root&gt;"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/RootView/RootViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED - 162c6fb20b79ee12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.RootViewModel.roots.getter : Swift.Array&lt;MapApp.Root&gt;"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/RootView/RootViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED - 187c1c4be2386e66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.RootViewModel.roots.setter : Swift.Array&lt;MapApp.Root&gt;"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/RootView/RootViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "130">
+               </Location>
+               <Location
+                  uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED - 49786d0fb2373c42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.RootViewModel.roots.modify : Swift.Array&lt;MapApp.Root&gt;"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/RootView/RootViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED - 84f8d50150276066"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.RootViewModel.roots.modify : Swift.Array&lt;MapApp.Root&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/RootView/RootViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED - 68c6be9845173b7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.RootViewModel.$roots.getter : Combine.Published&lt;Swift.Array&lt;MapApp.Root&gt;&gt;.Publisher"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/RootView/RootViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "110">
+               </Location>
+               <Location
+                  uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED - d0754247d75c6741"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.RootViewModel.$roots.setter : Combine.Published&lt;Swift.Array&lt;MapApp.Root&gt;&gt;.Publisher"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/RootView/RootViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "233">
+               </Location>
+               <Location
+                  uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED - 878a9fdb3191cc05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.RootViewModel.$roots.modify : Combine.Published&lt;Swift.Array&lt;MapApp.Root&gt;&gt;.Publisher"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  uuid = "3956EAA5-F600-4DEA-B7B9-FB8C14AAE4ED - 73d69414be1da2c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.RootViewModel.$roots.modify : Combine.Published&lt;Swift.Array&lt;MapApp.Root&gt;&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/RootView/RootViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "17">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3F21C44-E77A-471A-9542-C3D6CDDC57D3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapApp/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "CoreDataManager"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "E3F21C44-E77A-471A-9542-C3D6CDDC57D3 - d43a7c4860e7ca51"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "one-time initialization function for shared"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "E3F21C44-E77A-471A-9542-C3D6CDDC57D3 - bb832e7b09679a67"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.CoreDataManager.shared.unsafeMutableAddressor : MapApp.CoreDataManager"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "604415FA-1634-43A8-B1C4-3AC2877E91D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapApp/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "preview"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "604415FA-1634-43A8-B1C4-3AC2877E91D6 - 8724fad6587f79c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "one-time initialization function for preview"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "604415FA-1634-43A8-B1C4-3AC2877E91D6 - b24237dea79f122e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; MapApp.CoreDataManager in variable initialization expression of static MapApp.CoreDataManager.preview : MapApp.CoreDataManager"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  uuid = "604415FA-1634-43A8-B1C4-3AC2877E91D6 - 6a2f5a81d01bbc8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapApp.CoreDataManager.preview.unsafeMutableAddressor : MapApp.CoreDataManager"
+                  moduleName = "MapApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/naitomitsuhiro/Documents/swift/xcode_projects/MapApp/MapApp/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9672274B-AE00-44D3-99AB-825800FE4236"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapApp/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "save()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
