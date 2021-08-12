@@ -69,7 +69,7 @@ class MapViewModel: MapModel {
         self.isRootNameEdit = false
     }
     
-    private func saveRootData() {
+    func saveRootData() {
         var newPoints: [Point] = []
         for i in 0 ..< coordinates.count {
             let point = Point(context: cdmanager.context)
@@ -85,17 +85,19 @@ class MapViewModel: MapModel {
         newRoot.addToPoints(NSOrderedSet(array: newPoints))
         
         cdmanager.save()
+        for point in newPoints {
+            cdmanager.context.refresh(point, mergeChanges: false)
+        }
     }
 }
 
 class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
-    weak var vm: MapModel?
+    weak var vm: MapViewModel?
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print("locationManagerDidChangeAuthorization...")
         if manager.authorizationStatus == .authorizedWhenInUse {
             print("location is authorized")
-            manager.allowsBackgroundLocationUpdates = true
         } else {
             print("location is not authorized")
             manager.requestWhenInUseAuthorization()
@@ -108,7 +110,7 @@ class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
               let longitude = location?.coordinate.longitude else {
             return
         }
-
+        
         print("latitude: \(latitude)\nlongitude: \(longitude)")
         self.vm!.coordinates += [CLLocationCoordinate2D(latitude: latitude, longitude: longitude)]
     }

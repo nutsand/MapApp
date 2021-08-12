@@ -20,7 +20,10 @@ struct RootView: View {
         NavigationView {
             List {
                 ForEach(self.vm.roots) { root in
-                    NavigationLink(destination: RootMapView(root: root)) {
+                    NavigationLink(destination: RootMapView(root: root)
+                                    .onDisappear(perform: {
+                                        vm.faultPoints(root: root)
+                    })) {
                         HStack {
                             Text(root.rootnm)
                             Spacer()

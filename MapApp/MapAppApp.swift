@@ -14,6 +14,7 @@ struct MapAppApp: App {
     
     init() {
         locationManager.distanceFilter = 10
+        locationManager.allowsBackgroundLocationUpdates = true
     }
     
     var body: some Scene {

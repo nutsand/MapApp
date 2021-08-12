@@ -31,6 +31,14 @@ class RootViewModel: ObservableObject {
         }
     }
     
+    func faultPoints(root: Root) {
+        print("faultPoints...")
+        guard let points = root.points else { return }
+        for point in points {
+            cdmanager.context.refresh(point as! Point, mergeChanges: false)
+        }
+    }
+    
     func deleteRoot(offsets: IndexSet) {
         for i in offsets {
             cdmanager.delete(deleteObj: roots[i])
