@@ -14,6 +14,7 @@ class MapModel: ObservableObject {
     @Published var coordinates: [CLLocationCoordinate2D]
     @Published var isCenterLocked = false
     @Published var isShowRoot = false
+    var lastCoordinate: CLLocationCoordinate2D?
     var root: MKPolyline {
         MKPolyline(coordinates: coordinates, count: coordinates.count)
     }
@@ -112,6 +113,15 @@ class LocationDelegate: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
         
         print("latitude: \(latitude)\nlongitude: \(longitude)")
-        self.vm!.coordinates += [CLLocationCoordinate2D(latitude: latitude, longitude: longitude)]
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        // 前回取得地点から50m以内の地点の場合、経路に追加する。(場所が大きく移動する地点は精度が低いため除外する)
+        if let lastcoordinate = vm?.lastCoordinate {
+            if (MKMapPoint(lastcoordinate).distance(to: MKMapPoint(coordinate)) < 50) {
+                self.vm!.coordinates.append(coordinate)
+            } else {
+                print("！取得地点を外れ値として除外！")
+            }
+        }
+        vm?.lastCoordinate = coordinate
     }
 }

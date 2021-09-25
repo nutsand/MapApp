@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import CoreLocation
 
 @objc(Root)
 public class Root: NSManagedObject {
