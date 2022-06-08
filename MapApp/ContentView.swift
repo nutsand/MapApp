@@ -13,6 +13,12 @@ struct ContentView: View {
     var locationManager: CLLocationManager
     @State var selection = 0
     
+    init(manager: CLLocationManager){
+        self.locationManager = manager
+        //TabViewの背景色の設定
+        UITabBar.appearance().backgroundColor = UIColor.white
+    }
+    
     var body: some View {
         TabView(selection: $selection) {
             MapView(locationManager: locationManager,
@@ -22,14 +28,14 @@ struct ContentView: View {
                         Image(systemName: "map")
                         Text("現在地")
                 } }
-                .tag(1)
+                .tag(0)
             RootView(vm: RootViewModel(isPreview: false))
                 .tabItem {
                     VStack {
                         Image(systemName: "list.bullet")
                         Text("保存経路")
                 } }
-                .tag(2)
+                .tag(1)
         }
     }
 }
@@ -37,6 +43,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let manager = CLLocationManager()
-        ContentView(locationManager: manager)
+        ContentView(manager: manager)
     }
 }

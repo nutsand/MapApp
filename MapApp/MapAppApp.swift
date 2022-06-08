@@ -19,7 +19,7 @@ struct MapAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(locationManager: locationManager)
+            ContentView(manager: locationManager)
         }
     }
 }
